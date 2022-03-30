@@ -9,15 +9,29 @@ class Solution{
         long overBest = arr[0];
         
         for(int i = 1; i< n;i++){
-            long temp = currBest + Long.valueOf(arr[i]);
-            if(temp > Long.valueOf(arr[i])){
-               currBest += Long.valueOf(arr[i]);
+            
+            if(currBest >= 0){
+                currBest += Long.valueOf(arr[i]);
             }else{
-               currBest = Long.valueOf(arr[i]);
+                currBest = Long.valueOf(arr[i]);
             }
-            overBest = Math.max(currBest, overBest);
+            
+            if(currBest >overBest){
+                overBest = currBest;
+            }
+            
+            
+            
+            // long temp = currBest + Long.valueOf(arr[i]);
+            // if(temp > Long.valueOf(arr[i])){
+            //   currBest += Long.valueOf(arr[i]);
+            // }else{
+            //   currBest = Long.valueOf(arr[i]);
+            // }
+            // overBest = Math.max(currBest, overBest);
         }
         
         return overBest;
     }
 }
+
